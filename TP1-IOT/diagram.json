@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "JRS",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 14.3, "left": -72.2, "attrs": {} },
+    { "type": "uart-serial", "id": "terminal1", "top": 200, "left": 200, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 188.4,
+      "left": 80.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 79.94,
+      "left": 153.83,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 9.9, "left": -303, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 17.9, "left": -221, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": 174.5, "left": 143.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "esp:D23", "red", [ "v9.6", "h-48", "v-201.7" ] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h18.9", "v76.7" ] ],
+    [ "esp:3V3", "oled1:VCC", "red", [ "h28.54", "v-102.76", "h87.76" ] ],
+    [ "esp:GND.1", "oled1:GND", "black", [ "h18.9", "v-101.26", "h90.81" ] ],
+    [ "esp:D22", "oled1:SCL", "cyan", [ "h0" ] ],
+    [ "esp:D21", "oled1:SDA", "green", [ "h9.3", "v-34.5", "h129.14" ] ],
+    [ "dht1:VCC", "esp:VIN", "red", [ "v48", "h223.66" ] ],
+    [ "dht1:SDA", "esp:D14", "gold", [ "v38.4", "h201.7", "v-29.87" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v28.8", "h163.2", "v9.6", "h31.66" ] ],
+    [ "pot1:SIG", "esp:D32", "yellow", [ "v48", "h95.6", "v-48.87" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v57.6", "h105.6", "v18.33" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v134.4", "h229.6", "v-48" ] ],
+    [ "esp:D19", "encoder1:SW", "blue", [ "h47.7", "v182.3", "h211.2", "v-67.3" ] ],
+    [ "encoder1:GND", "esp:GND.1", "black", [ "h9.6", "v39.2", "h-220.8", "v-96" ] ],
+    [ "encoder1:VCC", "esp:3V3", "red", [ "h19.2", "v38.8", "h-220.8", "v-76.8" ] ],
+    [ "encoder1:CLK", "esp:D18", "green", [ "h48", "v105.6", "h-220.8", "v-192" ] ],
+    [ "encoder1:DT", "esp:D5", "gold", [ "h38.4", "v86.5", "h-230.4", "v-172.8" ] ]
+  ],
+  "dependencies": {}
+}
