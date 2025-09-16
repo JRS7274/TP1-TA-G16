@@ -12,6 +12,7 @@ class Device{
     Device(int w, int h, int reset, int pinOLED,  int model);
     void begin();
     void showDisplay(const char * text);
+    void showMenu(int total, int selected); // nueva para mostrar menú
     void welcomeAnimation(int randomNumber);
     void showTempScreen(float temp, int umbralTempSet, bool statusFan);
     void showHumScreen(float hum, int umbralHum, bool statusRiego);
