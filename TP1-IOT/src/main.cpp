@@ -8,6 +8,13 @@
 enum UIState { MENU, PANTALLA, EDITAR_UMBRALES };
 UIState estado = MENU;
 
+const char* menuItems[] = {
+    "Ver Temperatura",
+    "Ver Humedad",
+    "Editar Umbrales",
+    "Control Manual"
+};
+
 volatile int encoderValue = 0;
 volatile bool moved = false;
 volatile bool botonPresionado = false;  
@@ -117,7 +124,7 @@ void loop() {
 
   // --- Menú ---
   if (estado == MENU) {
-    _device.showMenu(totalPantallas, menuIndex);
+    _device.showMenu(totalPantallas, menuIndex, menuItems);
   } 
   else if (estado == PANTALLA) {  
     switch (pantallaActual) {

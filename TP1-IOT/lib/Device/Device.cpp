@@ -21,23 +21,24 @@ void Device::showDisplay(const char* text)
     _display.display();
 }
 
-void Device::showMenu(int total, int selected) {
-  _display.clearDisplay();
-  _display.setTextSize(1);
-  _display.setTextColor(SH110X_WHITE);
+void Device::showMenu(int total, int selected, const char* items[]) {
+    _display.clearDisplay();
+    _display.setTextSize(1);
+    _display.setTextColor(SH110X_WHITE);
 
-  for (int i = 0; i < total; i++) {
-    _display.setCursor(0, i * 10); // cada línea a 10px
-    if (i == selected) {
-      _display.print("> Opcion ");
-    } else {
-      _display.print("  Opcion ");
+    for (int i = 0; i < total; i++) {
+        _display.setCursor(0, i * 10); // cada línea a 10px de altura
+        if (i == selected) {
+            _display.print("> ");       // cursor de selección
+        } else {
+            _display.print("  ");
+        }
+        _display.print(items[i]);      // mostrar el nombre de la opción
     }
-    _display.print(i);
-  }
 
-  _display.display();
+    _display.display();
 }
+
 
 //Animación de bienvenida
 void Device::welcomeAnimation(int randomNumber) {
