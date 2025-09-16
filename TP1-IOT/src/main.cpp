@@ -4,9 +4,9 @@
 #define ENCODER_DT  5
 #define ENCODER_SW  19
 
-volatile bool botonPresionado = false;  // Se activa en la ISR
-int pantallaActual = 0;                 // Estado actual de la pantalla
-const int totalPantallas = 2;           // Cantidad de pantallas que vas a rotar
+volatile bool botonPresionado = false;  
+int pantallaActual = 0;                 
+const int totalPantallas = 2;           
 
 const short LED = 23;
 const short POTE = 32;
@@ -21,7 +21,7 @@ const short PIN_SENSOR = 14;
 Device _device(128, 64, -1, PIN_SENSOR, DHT22);
 
 void IRAM_ATTR onBoton() {
-  botonPresionado = true;  // Marca que hubo un evento
+  botonPresionado = true;  
 }
 
 void setup()
