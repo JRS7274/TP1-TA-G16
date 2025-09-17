@@ -152,8 +152,8 @@ void loop() {
         if (manualIndex > 2) manualIndex = 2;
         encoderValue = 0;
     }
-    Serial.print("Encoder Value: ");
-    Serial.println(encoderValue);
+    //Serial.print("Encoder Value: ");
+    //Serial.println(encoderValue);
   }
 
   // --- Mostrar UI ---
